@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>STATES</h1><br>
+    <a href="{% url 'state_create' %}" type="button">ADD STATES</a><br><br>
+    <table border="1">
+        <tr>
+        <th>id</th><th>uuid</th><th>country</th><td>state_name</td>
+        </tr>
+        {% for object in object_list %}
+        <tr>
+            <td>{{object.id}}</td>
+            <td>{{object.uuid}}</td>
+            <td>{{object.country}}</td>
+            <td>{{object.state_name}}</td>
+            <td><a href="{% url 'state_update' object.id %}" type="button">update</a></td>
+            <td><a href="{% url 'state_delete' object.id %}" type="button">delete</a></td>
+        </tr>
+        {% endfor %}
+</body>
+</html>
